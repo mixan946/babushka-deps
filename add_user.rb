@@ -6,13 +6,15 @@ dep 'add_user', :username, :app_path, :password do
   password.ask("Type 'password' which you want to add?")
 
   met? do
-    debugger
-    not shell? "cat /etc/passwd | cut -d: -f1 | grep #{username}" &&
-      app_path.p.exist?
+    not shell? "cat /etc/passwd | cut -d: -f1 | grep #{username}"
   end
 
   meet do
-    shell "adduser --no-create-home --home #{app_path} -p #{password} #{username}"
+    if app_path.p.exist?
+      shell "adduser --no-create-home --home #{app_path} -p #{password} #{username}"
+    else
+      raise "There no directory #{app_path}"
+    end
   end
 
 end
