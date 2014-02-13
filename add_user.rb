@@ -6,8 +6,7 @@ dep 'add_user', :username, :app_path, :password do
   password.ask("Type 'password' which you want to add?")
 
   met? do
-    debugger
-    !shell? "cat /etc/passwd | cut -d: -f1 | grep #{username}"
+    shell? "cat /etc/passwd | cut -d: -f1 | grep #{username}"
   end
 
   meet do
