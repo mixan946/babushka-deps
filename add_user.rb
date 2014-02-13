@@ -13,7 +13,8 @@ dep 'add_user', :username, :app_path, :password do
     if app_path.p.exist?
       shell "adduser --no-create-home --home #{app_path} -p #{password} #{username}"
     else
-      raise "There no directory #{app_path}"
+      puts "There no directory #{app_path}"
+      raise StandartError
     end
   end
 
