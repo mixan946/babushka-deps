@@ -1,5 +1,5 @@
 require 'byebug'
-dep 'add_user', :username, :app_path do
+dep 'add_user', :username, :app_path, :password do
 
   username.ask("Type 'username' which you want to add?")
   app_path.ask("Tyle 'app_path' where you want to add permission for #{username}").default("/rails_projects/#{username}")
