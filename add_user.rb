@@ -11,7 +11,8 @@ dep 'add_user', :username, :app_path, :password do
 
   meet do
     if app_path.p.exist?
-      shell "adduser --no-create-home --home #{app_path} -p #{password} #{username}"
+      debugger
+      shell "adduser --no-create-home --home #{app_path} -p #{password} #{username} sshusers"
     else
       raise "There no directory #{app_path}"
     end
