@@ -12,7 +12,7 @@ dep 'add_user', :username, :app_path, :password do
   meet do
     if app_path.p.exist?
       shell "adduser --no-create-home --home #{app_path} --ingroup sshusers #{username}"
-      shell "echo dr_tai:#{password} | chpasswd"
+      shell "echo #{username}:#{password} | chpasswd"
     else
       raise "There no directory #{app_path}"
     end
