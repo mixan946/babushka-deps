@@ -10,6 +10,7 @@ dep 'add_user', :username, :app_path, :password do
   end
 
   meet do
+    debugger
     if app_path.p.exist?
       shell "adduser --no-create-home --home #{app_path} -p #{password} #{username}"
     else
