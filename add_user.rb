@@ -1,3 +1,4 @@
+require 'byebug'
 dep 'add_user', :username, :password do
   username.ask("Type 'username' which you want to add")
   met? do
