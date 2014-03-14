@@ -1,8 +1,6 @@
-require 'byebug'
 dep 'add_user', :username, :password do
   username.ask("Type 'username' which you want to add")
   met? do
-    debugger
     "cat /etc/passwd | cut -d: -f1".p.grep(username)
   end
   meet do
